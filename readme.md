@@ -84,7 +84,7 @@ Die Test fälle beschreiben die wichtigsten funktionen meiner App
 ![img_1.png](img_1.png)
 
 
-link zu app: https://expo.dev/preview/update?message=Merge+branch+%27main%27+of+https%3A%2F%2Fgithub.com%2Flenn505%2FRiderBook&updateRuntimeVersion=1.0.0&createdAt=2025-07-09T12%3A15%3A00.530Z&slug=exp&projectId=0d14ebd4-                f6b9-456b-a41c-4183516c129c&group=6f15a383-4e64-4556-a08f-7d918ff09335
+link zu app: https://expo.dev/preview/update?message=Merge+branch+%27main%27+of+https%3A%2F%2Fgithub.com%2Flenn505%2FRiderBook&updateRuntimeVersion=1.0.0&createdAt=2025-07-09T12%3A15%3A00.530Z&slug=exp&projectId=0d14ebd4-f6b9-456b-a41c-4183516c129c&group=6f15a383-4e64-4556-a08f-7d918ff09335
 
 Stand: 09. Juli 2025
 Autor: Lennox Rupper
