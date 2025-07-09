@@ -75,6 +75,14 @@ Die App ist im Stil moderner Apple-Apps gehalten:
 - Detailansicht mit Route
 - Account-Seite mit Statistik und Darkmode
   
+
+11. Testtfälle
+Die Test fälle beschreiben die wichtigsten funktionen meiner App
+![img_11.png](img_11.png)
+
+
+![img_1.png](img_1.png)
+
 Stand: 09. Juli 2025
 Autor: Lennox Rupper
 Projekt: Abschlussprojekt Modul 335 – RiderBook
