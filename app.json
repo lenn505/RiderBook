@@ -1,14 +1,18 @@
 {
   "expo": {
     "name": "motoTrackerApp",
-    "slug": "motoTrackerApp",
+    "slug": "riderbook",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mototrackerapp",
     "userInterfaceStyle": "automatic",
     "deepLinking": true,
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
@@ -30,7 +34,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
@@ -39,6 +43,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0d14ebd4-f6b9-456b-a41c-4183516c129c"
+      }
+    },
+    "owner": "lenn505"
   }
 }
