@@ -1,50 +1,81 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Systemdokumentation – RiderBook App
 
-## Get started
 
-1. Install dependencies
+1. Grundkonzept
+   Die RiderBook App ist eine mobile Anwendung für Motorradfahrer, mit der Fahrten aufgezeichnet, visualisiert und statistisch ausgewertet werden können. Sie dient als digitales Fahrtenbuch und richtet sich an technisch interessierte Nutzerinnen und Nutzer, die ihre Touren intuitiv und modern dokumentieren möchten. Besonderheiten der App sind der Dark Mode, eine moderne Benutzeroberfläche im Apple-Design, sowie die Möglichkeit, pro Fahrt ein Bild und eine Route zu speichern.
 
-   ```bash
-   npm install
-   ```
 
-2. Start the app
+2. Architektur
+   Die App ist mit React Native auf Basis von Expo und TypeScript entwickelt. Die Navigation erfolgt über expo-router im Tab-Layout. Der zentrale Zustand wird mit Hilfe eines AppContext verwaltet, in dem z. B. Theme-Farben, Routen, Statistiken und Userdaten gespeichert sind.
+   Hauptkomponenten:
+- AppContext.tsx: globale Zustände, Theme, Fahrten-Management
+- RecordingPage: GPS-Tracking, Zeit- und Distanzmessung, Routenaufzeichnung
+- RideSaveModal: Fahrt speichern, Bild hinzufügen
+- RiderBook: Übersicht aller gespeicherten Fahrten
+- DetailRide: Kartenansicht der Route mit Zusatzinfos
+- AccountPage: Statistik, Darkmode-Toggle, Logout
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+3. Umsetzungspunkte
+- Dark Mode: über Switch umschaltbar, Themefarben werden dynamisch gesetzt
+- Datenhaltung: Fahrten werden lokal und online gespeichert, inkl. Bild und GPS-Route
+- Statistik: Fahrtenanzahl, Gesamtdistanz und Dauer werden automatisch berechnet
+- Bildfunktion: Bilder können direkt aufgenommen oder aus der Galerie hinzugefügt werden
+- Navigation: Tabs für "Aufzeichnen", "RiderBook", "Account"
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+4. Benutzeranleitung (Kurzform)
+   Login/Registrierung: Neues Konto erstellen oder einloggen
+   Aufzeichnen starten: "Play" drücken auf der Startseite
+   Pause / Stop: Fahrt anhalten oder beenden
+   Fahrt speichern: Name und Bild auswählen, speichern
+   RiderBook: Alle Fahrten ansehen, bearbeiten oder löschen
+   Account: Statistik einsehen, Darkmode aktivieren, Logout
 
-## Get a fresh project
 
-When you're ready, run:
+5. Persistenzlösung
+- Online-Speicherung über Supabase:
+   - Fahrten: Tabelle rides
+   - Routenpunkte: Tabelle route_points
+- Lokal: Darkmode-Einstellung mit AsyncStorage gespeichert
+  Diese Kombination gewährleistet sowohl Benutzerbindung als auch Wiederverwendbarkeit und Synchronisierung auf mehreren Geräten.
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+6. Sensor-Nutzung
+- GPS: Standort wird via expo-location erfasst und in regelmäßigen Intervallen gespeichert. Die Route wird als Polyline auf einer Karte dargestellt.
+- Kamera/Bildergalerie: Zugriff auf Kamera und Bilder erfolgt über expo-image-picker zum Speichern eines Tourbildes.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+7. Netzwerkfunktionalität
+   Die App nutzt Supabase für:
+- Authentifizierung: Login & Registrierung mit E-Mail und Passwort
+- Datenbankanbindung: Speichern und Abrufen von Touren und deren Routen
+- Dateiuploads: Bilder werden als URL in der Datenbank referenziert
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+8. Design & Usability
+   Die App ist im Stil moderner Apple-Apps gehalten:
+- weiche Schatten, abgerundete Elemente, klare Kontraste
+- Toggle-Elemente, Buttons und Listen sind barrierearm
+- optimiert für verschiedene Bildschirmgrößen (Responsiveness)
+- einheitliches Farbkonzept für Light- und Darkmode
 
-Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+9. Ausblick & Weiterentwicklung
+- Hochladen der App in den App Store (Shop-Mustereintrag folgt)
+- Verbesserung der Kartendarstellung (Google Maps Integration)
+- Teilen von Touren mit Freunden (z. B. über QR-Code)
+- Erweiterung um weitere Sensoren (z. B. Gyroskop für Neigungsmessung)
+
+
+10. Screenshots & Medien (werden in finaler Abgabe beigelegt)
+- Startseite mit GPS-Tracking
+- Modal zum Speichern mit Bildauswahl
+- RiderBook-Ansicht mit Karten
+- Detailansicht mit Route
+- Account-Seite mit Statistik und Darkmode
+
+Stand: 09. Juli 2025
+Autor: Lennox Rupper
+Projekt: Abschlussprojekt Modul 335 – RiderBook
